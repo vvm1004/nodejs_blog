@@ -5,10 +5,18 @@ const handlebars = require('express-handlebars').engine;
 const app = express()
 const port = 3000
 
+const route = require('./routes');
+
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.json());
+
+//XHTMP
 
 //HTTP logger
-app.use(morgan('combined'))
+// app.use(morgan('combined'))
 
 //Teplate engine
 app.engine('hbs', handlebars({
@@ -18,14 +26,8 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
 
-app.get('/', (req, res) => {
-  // res.send("123")
-  res.render('home');
-})
-
-app.get('/news', (req, res) => {
-  res.render('news');
-})
+//Routes init
+route(app);
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`)
