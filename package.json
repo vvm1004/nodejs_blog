@@ -27,9 +27,9 @@
   },
   "homepage": "https://github.com/vvm1004/nodejs_blog#readme",
   "lint-staged": {
-      "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
   },
-  "husky":{
+  "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
@@ -39,7 +39,7 @@
     "express-handlebars": "^6.0.6"
   },
   "devDependencies": {
-    "husky": "^8.0.2",
+    "husky": "^4.2.5",
     "lint-staged": "^13.0.4",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
